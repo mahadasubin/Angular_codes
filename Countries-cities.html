@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<div class="container-fluid">
+
+
+    <div class="panel panel-info">
+        <div class="row panel-header">
+
+            <div class="col-xs-4">
+                <strong>Choose your Country:</strong>
+                </br>
+                <select ng-model="country" ng-options="x for x in countries">
+                </select>
+            </div>
+
+            <div class="col-xs-4">
+                <strong>Choose your State:</strong>
+                </br>
+                <select ng-model="state"  ng-options="x for x in states[country]">
+                </select>
+            </div>
+
+            <div class="col-xs-4">
+                <strong>Choose your City:</strong>
+                </br>
+                <select ng-model="city" ng-options="x for x in cities[state]">
+                </select>
+            </div>
+
+        </div>
+
+        <div class="panel-body">
+            <p ng-if="city">You have selected the city <strong>{{city}}</strong> from the state <strong>{{state}} </strong>in the country of <strong>{{country}}</strong></p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.countries = ["India","USA","UAE"];
+        $scope.states = {India:["Kerala","Karnataka","Tamilnadu"],
+            USA:["California","Nevada","Texas"],
+            UAE:["Abudhabi","Dubai","Sharjah"]
+        };
+        $scope.cities = {Kerala:["calicut","Kannur","malappuram"],
+            Karnataka:["Bangalore","Mysore","Mandya"],
+            Tamilnadu:["Chennai","Trichy","Madurai"],
+            California:["SanJose","Dublin","Milpitas"],
+            Nevada:["Nevada1","Nevada2","Nevada3"],
+            Texas:["Texas1","Texas2","Texas3"],
+            Abudhabi:["ADB1","ADB2","ADB3"],
+            Dubai:["DB1","DB2","DB3"],
+            Sharjah:["SRJ1","SRJ2","SRJ3"]
+        };
+
+
+    });
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!--<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.countries = [{India:[
+            {Kerala:["calicut","Kannur","malappuram"]},
+            {Karnataka:["Bangalore","Mysore","Mandya"]},
+            {Tamilnadu:["Chennai","Coibatore","Trichy"]}],
+            USA:[
+                {California:["SanJose","Dublin","Milpitas"]},
+                {Nevada:["Nevada1","Nevada2","Nevada3"]},
+                {Texas:["Texas1","Texas2","Texas3"]}],
+            UAE:[
+                {Abudhabi:["ADB1","ADB2","ADB3"]},
+                {Dubai:["DB1","DB2","DB3"]},
+                {Sharjah:["SRJ1","SRJ2","SRJ3"]}
+            ]
+        }   ];
+
+
+    });
+</script>-->
+
+
+
+
+
+

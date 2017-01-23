@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2> Shopping List</h2>
+    <div ng-app="myApp" ng-controller="formCtrl">
+        <form name="myForm">
+            <table class="table table-bordered table-striped">
+
+                <tr>
+
+                    <td>Item: <input type="text" ng-model="obj.item" name="myItem"></td>
+                    <td>Quantity: <input type="number" ng-model="obj.quantity" name="myQ"></td>
+                    <td>Price: <input type="number" ng-model="obj.price" name="myP"></td>
+                    <td><button class="btn btn-success" ng-click="add()" ng-disabled="myForm.myItem.$pristine">Add</button></td>
+
+                </tr>
+
+
+                <tr ng-repeat="x in list">
+                    <td>{{x.item}}</td>
+                    <td>{{x.total}}</td>
+                    <td><button ng-click="remove(x)">&times</button></td>
+                </tr>
+                <tfooter>
+                    <tr><td><button class="btn btn-info" ng-click="total()">Grand Total</button></td>
+                        <td><strong>{{grandtotal}}</strong></td></tr>
+                </tfooter>
+
+            </table>
+
+
+        </form>
+    </div>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('formCtrl', function($scope) {
+
+
+
+        $scope.list = [];
+        $scope.obj={};
+
+
+
+        $scope.add = function(){
+
+
+            $scope.obj.total=$scope.obj.quantity * $scope.obj.price;
+            $scope.list.push($scope.obj);
+            console.log($scope.obj);
+            $scope.obj={}
+
+        }
+
+        $scope.remove = function(i){
+
+            $scope.list.splice(($scope.list.indexOf(i)),1);
+
+        }
+
+        $scope.total = function(){
+            $scope.grandtotal=1;
+            for (var i=0; i<$scope.list.length; i++){
+                $scope.grandtotal=$scope.grandtotal+$scope.list[i].total;
+            }
+
+        }
+
+
+    });
+</script>
+
+</body>
+</html>
+

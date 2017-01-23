@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2> Shopping List</h2>
+    <div ng-app="myApp" ng-controller="formCtrl">
+        <form name="myForm">
+            <table class="table table-bordered table-striped">
+
+                <tr>
+
+                    <td>Enter the item: <input type="text" ng-model="item" name="myItem"></td>
+                    <td><button class="btn btn-success" ng-click="add(item)" ng-disabled="myForm.myItem.$pristine">Add</button></td>
+
+                </tr>
+
+
+                <tr ng-repeat="x in list">
+                    <td>{{x}}</td>
+                    <td><button ng-click="remove(x)">&times</button></td>
+                </tr>
+
+            </table>
+
+
+        </form>
+    </div>
+</div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('formCtrl', function($scope) {
+
+
+
+            $scope.list = [];
+
+
+            $scope.add = function(i){
+                $scope.list.push(i);
+                $scope.item='';
+            }
+
+            $scope.remove = function(i){
+
+                $scope.list.splice(($scope.list.indexOf(i)),1);
+
+            }
+
+
+
+        });
+    </script>
+
+</body>
+</html>
+
