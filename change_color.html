@@ -14,25 +14,33 @@ background-color : red;
 
 <div id="myDiv"></div>
 <button onclick="myfunction()">change</button>
-
+<button onclick="stop()">stop change</button>
 </body>
 <script>
+var t;
 
 function myfunction(){
 
 var x = ["#546","#3f4","#875","orange","green","aqua"]
 var c = 0;
-setInterval(change,1000);
-/* x = x+0x10;
-//},1000)(); */
+
+t = setInterval(change,1000);
+
 function change(){
 if (c < x.length){
 c++;}
 else {c=0;} 
 document.getElementById("myDiv").style.backgroundColor = x[c];
 }
+
+};
+
+function stop(){
+clearInterval(t);
 };
 
 </script>
 </html>
+
+
 
