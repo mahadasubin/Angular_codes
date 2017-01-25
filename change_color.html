@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<style>
+div {
+width :600px;
+height :500px;
+border : solid 2px black;
+background-color : red;
+</style>
+<body >
+
+<div id="myDiv"></div>
+<button onclick="myfunction()">change</button>
+
+</body>
+<script>
+
+function myfunction(){
+
+var x = ["#546","#3f4","#875","orange","green","aqua"]
+var c = 0;
+setInterval(change,1000);
+/* x = x+0x10;
+//},1000)(); */
+function change(){
+if (c < x.length){
+c++;}
+else {c=0;} 
+document.getElementById("myDiv").style.backgroundColor = x[c];
+}
+};
+
+</script>
+</html>
+
