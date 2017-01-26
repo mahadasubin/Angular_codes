@@ -1,0 +1,53 @@
+<meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            height:100px;
+            width:200px;
+            background-color:lightblue;
+            position:relative;
+            padding:10px 10px 10px 10px;
+
+        }
+       p{
+
+           position:absolute;
+
+           top:30%;
+           left:30%;
+        }
+    </style>
+</head>
+<body>
+<div ><p id="clock"></p> </div>
+<button onclick="start()">Start Clock</button>
+<button onclick="stop()">Stop Clock</button></br>
+<button onclick="timer()">Start timer/Reset to 00</button>
+</body>
+<script>
+    var t;
+    function start(){
+         t = setInterval(st,1000);
+    };
+
+     function st(){
+         document.getElementById("clock").innerHTML =
+             new Date().toLocaleTimeString();
+     };
+    function stop(){
+        clearInterval(t);
+    };
+    function timer() {
+        var h = m = s = 00;
+        setInterval(function(){
+            s++;
+            if (s==60){ s=00;m++;};
+            if (m==60){ m=00;h++};
+            document.getElementById("clock").innerHTML = h+":"+m+":"+s;
+        }, 1000);
+
+    };
+
+
+</script>
+</html>
