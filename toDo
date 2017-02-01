@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+
+<style>
+ul {
+list-style: none;}
+
+.hilite{
+text-decoration: line-through;
+}
+</style>
+
+<body ng-app="myapp" ng-controller="myCtrl">
+<ul>
+<li ng-repeat="task in tasks">
+<input type="checkbox" ng-model="task.done"> 
+<span ng-class="{'hilite' : task.done}">{{task.activity}}</span>
+ </li>
+</ul>
+<input type="text" ng-model="newtask">
+<button ng-click="addTask()">Add Task</button>
+</body>
+
+<script>
+var myapp = angular.module('myapp', []);
+
+myapp.controller('myCtrl', function($scope){
+
+$scope.tasks = [{activity:'Reading', done:false}];
+$scope.addTask = function(){
+   $scope.tasks.push({activity: $scope.newtask, done:false});}
+
+});
+</script>
+</html>
+
