@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>UI grid demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="styleSheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.2/ui-grid.css"/>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.2/ui-grid.min.js"></script>
+
+    <style>
+        .myGrid{
+            width:800px;
+            height:600px;
+        }
+    </style>
+</head>
+<body ng-app="gridApp" ng-controller="gridController">
+
+<div class="myGrid" ui-grid="gridoptions">
+
+</div>
+
+<script>
+    var app = angular.module('gridApp',['ui.grid']);
+    app.controller('gridController', function($scope){
+        $scope.gridoptions= {};
+        $scope.customers = [{fname:'abc', lname:'l', phone:4085060109, city:'NY'},
+            {fname:'efg', lname:'d', phone:4084433535, city:'CA'},
+            {fname:'ijk', lname:'k', phone:4087545625, city:'TX'}
+        ];
+        $scope.gridoptions.data = $scope.customers;
+        $scope.gridoptions.enableGridMenu = true;
+        $scope.gridoptions.columnDefs =[{name:'First Name', field: 'fname'},{name: 'Last Name', field:'lname'},
+            {name:'Contact No', field:'phone'}, {name:'Lives in City', field:'city'}];
+    })
+</script>
+</body>
+
+</html>
