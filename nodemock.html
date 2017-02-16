@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+
+    dl,ul{padding:10px;
+        box-sizing:border-box;
+        resize:both;
+        border: 5px solid white;
+        list-style-position:inside;
+        font-size:20px;
+    }
+   pre{
+       white-space:pre-wrap;
+       background-color:lightblue;
+       font-size:20px;
+   }
+   code{
+       background-color:white;
+       color:red;
+   }
+    .main {
+        transition: all linear 1.5s;
+        background-color: lightblue;
+        padding: 15px;
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 25px;
+        height: 570px;
+        border:2px double black;
+
+    }
+
+    .header, .footer{
+        transition: all linear 1.5s;
+        color:white;
+        background-color: #14a2ff;
+        text-align:center;
+        font-size:30px;
+        height:100px;
+        padding:5px;
+
+
+    }
+
+
+    select{
+        font-size:15px;
+        width:200px;
+        height:30px;
+        float:right
+
+    }
+
+
+
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<body ng-app="">
+<div>
+    <div class="header">
+        <img src="nodejs_icon.png" width="100" height="80" id="image" style="float:left">
+        <canvas id="myCanvas" width="1000" height="80" style="border:1px solid #d3d3d3;  border-radius: 60px/15px;">
+    </canvas>
+        <iframe src="http://free.timeanddate.com/countdown/i5ifrgf7/n5402/cf111/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pc00f/tc66c/fs100/szw192/szh81/tac000/tptTime%20since%20Event%20started%20in/tpc000/mac000/mpc000/iso2016-12-27T16:00:00" allowTransparency="true" frameborder="0" width="192" height="81"></iframe>
+    </div>
+    <div class="main">
+    <Select style="font-size:20px" ng-model="question">
+        <option value="q1">Quetion 1:</option>
+        <option value="q2">Quetion 2:</option>
+        <option value="q3">Quetion 3:</option>
+        <option value="q4">Quetion 4:</option>
+        <option value="q5">Quetion 5:</option>
+        <option value="q6">Quetion 6:</option>
+        <option value="q7">Quetion 7:</option>
+        <option value="q8">Quetion 8:</option>
+        <option value="q9">Quetion 9:</option>
+        <option value="q10">Quetion 10:</option>
+        <option value="q11">Quetion 11:</option>
+        <option value="q12">Quetion 12:</option>
+        <option value="q13">Quetion 13:</option>
+        <option value="q14">Quetion 14:</option>
+        <option value="q15">Quetion 15:</option>
+    </Select>
+
+
+    <div ng-if = "question=='q1'">
+        <b>1)What is NodeJS?and what makes it popular?
+            </b>
+        <input type="checkbox" ng-model="a1">
+        <ul ng-if="a1">NodeJS is a server side platform to execute javascript codes for developing web applications.It also provieds some javascript module libraries.
+            <li> Event driven,non blocking I/O model</li>
+            <li>JAVA SCRIPT run time environment.</li>
+            <li>Open source.</li>
+            </ul>
+    </div>
+
+    <div ng-if = "question=='q2'">
+        <b>2.What is the version of npm and node in your machine?
+        </b>
+        <input type="checkbox" ng-model="a2">
+        <ul ng-if="a2">
+            <li>Npm -v/--v</li>
+            <li>node -v</li>
+        </ul>
+    </div>
+
+    <div ng-if="question=='q3'">
+        <b>3)What is globals in nodeJS?
+
+        </b>
+        <input type="checkbox" ng-model="a3">
+        <ul ng-if="a3">Objects global,buffer(raw data stored in instances for a buffer classes) and process(to make synch call to asynch functionality) are together known as globals.
+
+            <li>Global(variables or methods) are available to every module,so no need to include them using require function in our node js applications.</li>
+            <li>_filename,_dirname,settimeout(),clearTimeout().setIntervel(),clearIntervel(),console etc.</li>
+        </ul>
+    </div>
+
+    <div ng-if="question=='q4'">
+        <b>4)   What is the global command/method that is used in node.js to import external libraries?
+        </b>
+        <input type="checkbox" ng-model="a4">
+        <ul ng-if="a4"> Command “require” is used for importing external libraries, for example, “var http=require (“http”)”.  This will load the http library and the single exported object through the http variable.
+        </ul>
+    </div>
+
+    <div ng-show="question=='q5'">
+        <b>5) Explain Package.JSON?
+        </b>
+        <input type="checkbox" ng-model="a5">
+        <ul ng-if="a5">This will be present in the root directory of any Node module/application and will be used to define the properties of a package.
+        </ul>
+    </div>
+
+    <div ng-show="question=='q6'">
+        <b>6)Define path module,fs module,os module and net module.
+        </b>
+        <input type="checkbox" ng-model="a6">
+        <ul ng-if="a6">
+            <li>Path module:used for transforming and handling file paths.</li>
+            <li>Fs module:used for file based operations</li>
+            <li>Os module:used for some basic operating system related utility functions.</li>
+            <li>Net module:used for creating both clients and servers. It will provide asynchronous network wrapper.</li>
+        </ul>
+    </div>
+
+    <div ng-show="question=='q7'">
+        <b>7) Why to use “__filename” in Node.JS?</b>
+        <input type="checkbox" ng-model="a7">
+        <ul ng-if="a7">“__filename” is used to represent the filename of the code which is being executed. It used to resolve the absolute path of file. Below is the sample code for the same –
+            <li>Console.log(__filename);</li>
+        </ul>
+    </div>
+
+    <div ng-show="question=='q8'">
+        <b>8).What is cluster server objects in node js?
+        </b>
+        <input type="checkbox" ng-model="a8">
+        <ul ng-if="a8">A single instance of Node runs in a single thread. The cluster module allows you to create child processes that all share server ports.
+            <li><a href="http://www.c-sharpcorner.com/UploadFile/f50501/cluster-server-object-in-nodejs/">for more details click here</a></li>
+        </ul>
+    </div>
+
+    <div ng-show="question=='q9'">
+        <b>9) What is Grunt in Node.js?
+        </b>
+        <input type="checkbox" ng-model="a9">
+        <ul ng-if="a9">Grunt is a JavaScript Task Runner and this is a command line tool which runs on NodeJS. It helps us to do all the below tasks very easily with a minimum effort.
+
+            <li>CSS file compression
+            <li>Compile SASS or LESS files to generate CSS files</li>
+            <li>Unit testing</li>
+            <li>SVN commit</li>
+            <li>Build deployment etc
+            </li>
+            <li>JS minification or obfuscation
+            </li>
+            <li>HTML/JSON file minification.
+            </li>
+            <li>Image optimisation</li>
+        </ul>
+    </div>
+
+    <div ng-show="question=='q10'">
+        <b>10) How can you create HTTPS Server With NodeJS?
+        </b>
+        <input type="checkbox" ng-model="a10">
+        <pre ng-if="a10">
+            <code style="color:red">var https = require('https');
+                var fs = require('fs');
+                var options = {
+                    key: fs.readFileSync('hostkey.pem'),
+                    cert: fs.readFileSync('hostcert.pem')
+                 };
+                https.createServer(options, function (req, res) {
+                   res.writeHead(200);
+                   res.end("hello world\n");
+                 }).listen(8000);
+</code>
+        </pre>
+    </div>
+
+    <div ng-show="question=='q11'">
+        <b>11) Explain “request” module in node.js</b>
+        <input type="checkbox" ng-model="a11">
+        <ul ng-if="a11">Here is a simple implementation of the “request” module. In this module we are making a HTTP request to the Google server and then we are logging the response in the console
+            <li><pre><code style="color:red">var http = require('http');
+var request = require("request");
+var server = http.createServer(function (req, res) {
+   request("http://www.google.com", function (error, response, body) {
+      console.log(body);
+   });
+});
+server.listen(9090);
+</code></pre>
+        </ul>
+    </div>
+
+    <div ng-show="question=='q12'">
+        <b>12)What is Express project and how can you create Express project?</b>
+        <input type="checkbox" ng-model="a12">
+        <dl ng-if="a12">
+            Express is a framework that allows the creation of the MVC web architecture in a Node JS application. There are many ways to create an Express project.An Express project contains many folders and files.
+            <dt>node_modules</dt>
+<dd>An Express project uses a MVC framework and it uses many other modules that we call dependency modules for the Express framework. So all dependency modules are stored in the node_modules folder.
+</dd><dt>Public</dt>
+            <dd>This folder contain CSS, JavaScript files and images.</dd>
+            <dt>routes</dt>
+            <dd>This folder contains a JS file that will help to route user URL. In this folder we can create many JS files and use them in an app.js file.</dd>
+            <dt>Views</dt>
+<dd>This is the folder where we add our jade page. This jade page will be shown in the browser.
+            <dt>app.js</dt>
+            <dd>This file is the heart of the Express framework. In this file we configure the Express application settings.</dd>
+            <dt>package.json</dt>
+            <dd>It is a JSON configuration file where we can configure project details and its dependencies</dd>
+        </dl></div>
+
+    <div ng-show="question=='q13'">
+        <b>13) What is middleware?
+        </b>
+        <input type="checkbox" ng-model="a13">
+        <ul ng-if="a13">
+            Middleware is actually a very simple concept to understand, it is very similar to middleman. What middleman does is he takes the request from one party and gets in touch with the other party, he does what needs to be done and then provides a response back to the party which placed the request in the first place. So middleware are just simple functions with three arguments; request, response and next, they act as a middleman; when express receives a request, express passes this request to each middleware in the chain until it receives a response. In general, there are two kinds of middleware, first one being a normal middleware, and the second one an error handling middleware.
+ </ul>
+    </div>
+        <div ng-show="question=='q14'">
+            <b>14) What is Node.js Mean Stack?</b>
+            <input type="checkbox" ng-model="a14">
+            <ul ng-if="a14">
+            It is comprised of four main technologies, with their supporting technologies,
+                <li>Mongo DB:The database.</li>
+                <li>Express:The web framework.</li>
+                <li>AngularJS:The front-end framework.</li>
+                <li>Node.JS:The web server.</li>
+<li>One great thing about MEAN stack is, it not only uses JavaScript in the browser, it uses JavaScript throughout. Using the MEAN stack, you can code both the front end and back end in the same language.
+</li>
+        </ul></div>
+        <div ng-show="question=='q15'">
+            <b>15)How can you Implement Visitor Counter in Node.js?
+            </b>
+            <input type="checkbox" ng-model="a15">
+            <pre ng-if="a15"><code style="color:red">
+                var http = require('http');
+                var userCount = 0;
+                var server = http.createServer(function (req, res) {
+                userCount++;
+                res.writeHead(200, { 'Content-Type': 'text/plain' });
+                res.write('Hello!\n');
+                res.write('We have had ' + userCount + ' visits!\n');
+                res.end();
+
+                });
+                server.listen(9090);
+                console.log('server running...')
+
+            </code></pre></div>
+
+    </div>
+    <!-- Trigger the modal with a button -->
+<div class="footer">
+    <div class="container">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">End</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="header"><p>Thank you!</p>
+                    <p>HAPPY HOLIDAYS!!!</p></div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var img=document.getElementById("image");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle="yellow";
+    ctx.font = "70px Arial";
+    ctx.strokeStyle="red";
+    ctx.textAlign="center";
+
+    ctx.strokeText("Mock on NodeJs",500, 60);
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+</body>
+</html>
