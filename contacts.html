@@ -1,0 +1,28 @@
+<h1>Contacts</h1>
+<table class="table table-bordered table=striped" >
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text" ng-model="contact.name"> </td>
+            <td><input type="text" ng-model="contact.email"> </td>
+            <td><input type="text" ng-model="contact.phone"> </td>
+            <td><button class="btn btn-success" ng-click="addContact()">Add </button>
+            <button class="btn btn-warning" ng-click="updateContact(contact._id)">Update</button></td>
+        </tr>
+        <tr ng-repeat="contact in contacts">
+        <td>{{contact.name}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.phone}}</td>
+        <td><button class="btn btn-danger" ng-click="removeContact(contact._id)">REMOVE </button>
+            <button class="btn btn-warning" ng-click="editContact(contact._id)">EDIT </button></td>
+        </tr>
+    </tbody>
+</table>
+<p<{{contacts}}</p>
