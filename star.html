@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <style>
+        div{
+            height:50px;
+            width:50px;
+            background-color:grey;
+            diplay:inline-block;
+            float:left;
+            border:black solid 2px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <svg width="20" height="20" id="one">
+        <polygon points="10,1,4,19.8, 19,7.8 1,7.8 16,19.8"
+                 style="fill:grey;stroke:purple;stroke-width:0.5;" />
+        Sorry, your browser does not support inline SVG.
+    </svg>
+
+    <svg width="20" height="20">
+        <polygon points="10,1,4,19.8, 19,7.8 1,7.8 16,19.8"
+                 style="fill:grey;stroke:purple;stroke-width:0.5;" />
+        Sorry, your browser does not support inline SVG.
+    </svg>
+
+        <svg width="20" height="20">
+        <polygon points="10,1,4,19.8, 19,7.8 1,7.8 16,19.8"
+                 style="fill:grey;stroke:purple;stroke-width:0.5;" />
+        Sorry, your browser does not support inline SVG.
+        </svg>
+
+            <svg width="20" height="20">
+        <polygon points="10,1,4,19.8, 19,7.8 1,7.8 16,19.8"
+                 style="fill:grey;stroke:purple;stroke-width:0.5;" />
+        Sorry, your browser does not support inline SVG.
+            </svg>
+
+                <svg width="20" height="20">
+        <polygon points="10,1,4,19.8, 19,7.8 1,7.8 16,19.8"
+                 style="fill:grey;stroke:purple;stroke-width:0.5;" />
+        Sorry, your browser does not support inline SVG.
+                </svg>
+
+
+
+</body>
+<script>
+    $(document).ready(function(){
+        $("svg").click(function(){
+          $(this).children().css({"fill":"blue"});
+            $(this).prevAll().children().css({"fill":"blue"});
+            });
+        $("svg").mouseenter(function() {
+            $(this).children().css({"fill": "red"});
+            $(this).prevAll().children().css({"fill": "red"});
+            /* $("svg").mouseleave(function () {
+                $(this).children().css({"fill": "grey"});
+                $(this).prevAll().children().css({"fill": "grey"});
+            });*/
+        });
+
+    });
+
+
+</script>
