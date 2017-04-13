@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #outer{
+            background-color:red;
+            width:300px;
+            height:300px;
+            border:solid 2px black;
+            position:relative;
+        }
+
+        #inner{
+            background-color:blue;
+            border:solid 2px yellow;
+            width:50px;
+            height:50px;
+            position:absolute;
+            left:0px;
+            top:0px;
+
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body>
+<div id="outer">
+
+    <div id="inner">
+
+    </div>
+
+</div>
+
+<button id="start">Start</button>
+
+<button id="stop">Stop</button>
+</body>
+<script>
+    $(document).ready(function() {
+
+        var component=$("#inner");
+
+        $("#start").click(function() {
+
+
+
+            var l=parseInt(component.css('left'));
+            var t=parseInt(component.css('top'));
+
+            switch(true){
+                case t==0:
+                    right();
+                    break;
+                case l==250:
+                    down();
+                    break;
+                case t==250:
+                    left();
+                    break
+                case l==0:
+                    up();
+            }
+
+
+
+            function right() {
+
+                component.animate({"left":"250px"}, 2000,function () {
+                    down();
+                });
+            };
+
+            function down() {
+
+                component.animate({"top":"250px"},2000,function () {
+                    left();
+                });
+            };
+
+            function left() {
+
+                component.animate({"left":"0px"},2000,function () {
+                    up();
+                });
+            };
+
+            function up() {
+
+                component.animate({"top":"0px"},2000,function () {
+                    right();
+                });
+            };
+
+
+
+
+        });
+
+
+
+        $("#stop").click(function(){
+
+
+            component.stop();
+
+
+
+        });
+    });
+</script>
